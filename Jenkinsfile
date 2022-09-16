@@ -2,10 +2,14 @@ pipeline {
 
     agent any
     stages{
+        
         stage ('Build') {
             steps {
+                when {
+                    BRANCH_NAME == 'master'
+                }
                 cleanWs()
-		sh 'echo "harish" > text.txt'
+                sh 'echo "harish" > text.txt'
                 sh 'mkdir harish tex'
             }
         }        
