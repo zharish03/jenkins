@@ -6,7 +6,7 @@ pipeline {
         stage ('Build') {
             steps {
                 sh 'echo "harish" > text.txt'
-                sh 'mkdir harish tex'
+                sh 'mkdir harish tex || true'
             }
         }        
         
