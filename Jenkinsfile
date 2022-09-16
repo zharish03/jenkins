@@ -6,7 +6,10 @@ pipeline {
         stage ('Build') {
             steps {
                 when {
-                    BRANCH_NAME == 'master'
+                    expression {
+                        BRANCH_NAME == 'master'
+                    }
+                    
                 }
                 cleanWs()
                 sh 'echo "harish" > text.txt'
