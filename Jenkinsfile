@@ -9,5 +9,10 @@ pipeline {
                 sh 'mkdir harish tex'
             }
         }        
+        stage ('Build') {
+            steps {
+                echo 'This is $BRANCH_NAME'
+            }
+        }
     }
 }
