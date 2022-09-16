@@ -1,12 +1,13 @@
 pipeline {
 
     agent any
+    cleanWs()
     stages{
         
         stage ('Build') {
             steps {
                 sh 'echo "harish" > text.txt'
-                sh 'mkdir harish tex || true'
+                sh 'mkdir harish tex'
             }
         }        
         
