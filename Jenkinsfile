@@ -1,24 +1,12 @@
-pipeline{
+pipeline {
 
     agent any
     stages{
         
-        stage ('Build'){
-            steps{
-                echo "Stage is Build"
+        stage ('Build') {
+            steps {
+                sh 'echo "harish" > text.txt'
             }
-        }
-        
-        stage ('Test'){
-            steps{
-                echo "Stage is Testing"
-            }
-        }   
-
-        stage ('Deploy'){
-            steps{
-                echo "Stage is Deploying"
-            }
-        }     
+        }        
     }
 }
