@@ -15,7 +15,7 @@ pipeline {
         
         stage ('ENV-Testing') {
             steps {
-                echo 'This is ${BRANCH_NAME}'
+                echo 'This is ${env.BRANCH_NAME}'
             }
         }
     }
