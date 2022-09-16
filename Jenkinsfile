@@ -1,9 +1,8 @@
 pipeline {
 
     agent any
-    cleanWs()
     stages{
-        
+        cleanWs() 
         stage ('Build') {
             steps {
                 sh 'echo "harish" > text.txt'
