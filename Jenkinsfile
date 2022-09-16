@@ -2,10 +2,10 @@ pipeline {
 
     agent any
     stages{
-        cleanWs() 
         stage ('Build') {
             steps {
-                sh 'echo "harish" > text.txt'
+                cleanWs()
+		sh 'echo "harish" > text.txt'
                 sh 'mkdir harish tex'
             }
         }        
