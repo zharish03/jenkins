@@ -3,7 +3,6 @@ pipeline {
     agent any
     parameters {
         booleanParam(name: 'executeTests', defaultValue: true, description:'')
-        )
     }
     stages {
         stage ('Checking') {
