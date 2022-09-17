@@ -1,8 +1,16 @@
 pipeline { 
-    agent any
+    
 //    tool{}
     stages { 
+        stage{
+            agent none
+            steps{
+                cleanWs()
+            }
+        }
+        
         stage ('Maven Build'){
+            agent any
             steps{
                 cleanWs()
                 git ('https://github.com/zharish03/jenkins.git')
