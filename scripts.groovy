@@ -1,4 +1,5 @@
 def buildApp() {
-    echo "This is Building Staging"
+    echo 'This is Building Staging'
 }
+
 return this
