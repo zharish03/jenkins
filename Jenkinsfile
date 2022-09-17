@@ -1,22 +1,10 @@
-branch = 'master'
-pipeline {
+pipeline { 
     agent any
-    stages {
-    stage ("Master") {
-            when {
-                branch 'master'
-            }
-            steps { 
-                echo "master"
-            }            
-        }
-        stage ("Main") {
-            when {
-                branch 'main'
-            }
-            steps {
-                echo "Nohing will come"
-            }
+    tool{}
+    stages { 
+        stage ('Maven Build'){
+            cleanWs()
+            sh 'mvn -f ./maven/pom.xml clean install'
         }
     }
 }
