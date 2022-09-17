@@ -1,3 +1,4 @@
+branch = 'master'
 pipeline {
     agent any
     stages {
