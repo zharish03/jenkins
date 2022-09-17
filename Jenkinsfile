@@ -5,7 +5,8 @@ pipeline {
         stage ('Maven Build'){
             steps{
                 cleanWs()
-                sh 'mvn -f maven/pom.xml clean install'
+                git ('https://github.com/zharish03/jenkins.git')
+                sh ('mvn -f maven/pom.xml clean install')
             }
         }
     }
