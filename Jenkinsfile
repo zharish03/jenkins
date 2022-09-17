@@ -7,7 +7,7 @@ pipeline {
         stage ('Scripts'){
             steps{    
                 script{
-                    gv = load "script.groovy"
+                    lv = load "script.groovy"
                 }
             }    
         }
