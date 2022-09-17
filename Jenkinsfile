@@ -1,21 +1,20 @@
 pipeline {
-
     agent any
-    stages{
-        
-        stage ('Build') {
-            steps {
-
-                cleanWs()
-                sh 'echo "harish" > text.txt'
-                sh 'mkdir harish tex'
-            
+    stages {
+    stage ("Master") {
+            when {
+                branch 'master'
             }
-        }        
-        
-        stage ('ENV-Testing') {
+            steps { 
+                echo "master"
+            }            
+        }
+        stage ("Main") {
+            when {
+                branch 'main'
+            }
             steps {
-                echo "This is ${env.BRANCH_NAME}"
+                echo "Nohing will come"
             }
         }
     }
