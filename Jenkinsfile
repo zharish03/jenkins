@@ -5,14 +5,18 @@ pipeline {
     stages {
         
         stage ('Scripts'){
-            script{
-                gv = load "script.groovy"
-            }
+            steps{    
+                script{
+                    gv = load "script.groovy"
+                }
+            }    
         }
         
         stage ('Building') {
-            scripts {
-                lv.buildApp()
+            steps{
+                scripts {
+                    lv.buildApp()
+                }
             }
         }
     }
