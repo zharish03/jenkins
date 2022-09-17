@@ -3,8 +3,10 @@ pipeline {
 //    tool{}
     stages { 
         stage ('Maven Build'){
-            cleanWs()
-            sh 'mvn -f ./maven/pom.xml clean install'
+            steps{
+                cleanWs()
+                sh 'mvn -f ./maven/pom.xml clean install'
+            }
         }
     }
 }
