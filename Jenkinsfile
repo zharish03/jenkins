@@ -1,6 +1,6 @@
 pipeline { 
     agent any
-    tool{}
+//    tool{}
     stages { 
         stage ('Maven Build'){
             cleanWs()
