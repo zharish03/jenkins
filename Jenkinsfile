@@ -1,23 +1,44 @@
-def lv
+def gv
+
 pipeline {
     agent any
-
+    parameters {
+        booleanParam(name: 'executeTests', defaultValue: true, description: '')
+    }
     stages {
-        
-        stage ('Scripts'){
-            steps{    
-                script{
-                    lv = load "script.groovy"
-                }
-            }    
-        }
-        
-        stage ('Building') {
-            steps{
-                scripts {
-                    lv.buildApp()
+        stage("init") {
+            steps {
+                script {
+                   gv = load "script.groovy" 
                 }
             }
         }
-    }
+        stage("build") {
+            steps {
+                script {
+                    gv.buildApp()
+                }
+            }
+        }
+        stage("test") {
+            when {
+                expression {
+                    params.executeTests
+                }
+            }
+            steps {
+                script {
+                    gv.testApp()
+                }
+            }
+        }
+        stage("deploy") {
+            steps {
+                script {
+                    gv.deployApp()
+                }
+            }
+        }
+    }   
 }
+
