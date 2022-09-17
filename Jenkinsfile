@@ -1,6 +1,10 @@
 def lv
 pipeline {
     agent any
+    parameters {
+        booleanParam(name: 'executeTests', defaultValue: true, description:'')
+        )
+    }
     stages {
         stage ('Checking') {
             steps {
@@ -13,6 +17,16 @@ pipeline {
             steps {
                 script {
                     lv.buildApp()
+                }
+            }
+        }
+        stage ("When Condition") {
+            when {
+                params.executeTests
+            }
+            steps {
+                script {
+                    lv.testApp()
                 }
             }
         }
