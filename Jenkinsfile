@@ -3,19 +3,22 @@ pipeline {
     agent any
 
     stages {
-        stage ("init") {
-            steps {
+        
+        stage ("Scripts") {
+            steps{    
                 script {
-                   gv = load "scripts.groovy" 
+                    gv = load "scripts.groovy"
                 }
-            }
+            }    
         }
-        stage ("build") {
+        
+        stage ("Building") {
             steps {
-                script {
+                scripts {
                     gv.buildApp()
                 }
             }
         }
     }
 }
+
