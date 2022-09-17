@@ -1,30 +1,25 @@
-def gv
-
+def lv
 pipeline {
     agent any
 
     stages {
-        stage("init") {
-            steps {
-                script {
-                   gv = load "scripts.groovy" 
+        
+        stage ('Scripts') {
+            steps{    
+                script{
+                    lv = load "scripts.groovy"
+                }
+            }    
+        }
+        
+        stage ('Building') {
+            steps{
+                scripts {
+                    lv.buildApp()
                 }
             }
         }
-        stage("build") {
-            steps {
-                script {
-                    gv.buildApp()
-                }
-            }
-        }
-        stage("deploy") {
-            steps {
-                script {
-                    gv.deployApp()
-                }
-            }
-        }
-    }   
+    }
 }
+
 
